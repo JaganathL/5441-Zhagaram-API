@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
         res.json(categories);
     } catch (error) {
         console.error('Get categories error:', error);
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Server error', error: error.message });
     }
 });
 
@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
         res.json(category);
     } catch (error) {
         console.error('Get category error:', error);
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Server error', error: error.message });
     }
 });
 
