@@ -17,7 +17,7 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 // MongoDB Connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/zhagaram-jewellery';
+const MONGODB_URI = 'mongodb+srv://jaganathjagan123_db_user:7fFUhDjnCl12YDvT@cluster0.kya09st.mongodb.net/?appName=Cluster0/zhagaram-jewellery';
 
 mongoose.connect(MONGODB_URI)
   .then(() => console.log('✅ MongoDB connected successfully'))
