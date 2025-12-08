@@ -34,7 +34,13 @@ app.use('/api/products', productRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Zhagaram Jewellery API is running' });
+  const dbStatus = mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected';
+  res.json({
+    status: 'OK',
+    message: 'Zhagaram Jewellery API is running',
+    dbStatus,
+    mongoUriConfigured: !!process.env.MONGODB_URI
+  });
 });
 
 const PORT = process.env.PORT || 3000;
